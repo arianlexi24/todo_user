@@ -5,6 +5,7 @@ from odoo import models, fields, api
 
 class TodoTask(models.Model):
     _inherit = 'todo.task'
-    user_id = field_name = fields.Many2many('res.users', 'Responsable')
-    date_deadline = field_name = fields.Date('Deadline')
+    user_id = fields.Many2one('res.users', 'Responsable')
+    date_deadline = fields.Date('Deadline')
+    name = fields.Char(help="Qu'est-ce qu'on devra faire?")
 
