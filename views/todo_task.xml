@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="todo_application.view_form_todo_task" />
         <field name="arch" type="xml">
             <field name="name" position="after">
-                <field name="user_id">
+                <field name="user_id"/>
             </field>
             <field name="is_done" position="before">
                 <field name="date_deadline" />
@@ -28,6 +28,7 @@
                 <field name="user_id" />
             </field>
         </field>
+    </record>
 
     <!--> Search filter todo task view <-->
     <record id="view_filter_todo_task_inherited" model="ir.ui.view">
@@ -41,5 +42,6 @@
                 <filter name="filter_not_assigned" string="Not Assigned" domain="[('user_id','=',False)]" />
             </field>
         </field>
+    </record>
 
 </odoo>
