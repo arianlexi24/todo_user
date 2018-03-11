@@ -6,6 +6,7 @@
         <field name="model">todo.task</field>
         <field name="inherit_id" ref="todo_application.view_form_todo_task" />
         <field name="arch" type="xml">
+
             <field name="name" position="after">
                 <field name="user_id">
             </field>
@@ -15,6 +16,14 @@
             <field name="active" position="attributes">
                 <attribute name="invisible">1</attribute>
             </field>
+
+            <sheet position="after">
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" />
+                    <field name="message_ids" widget="mail_thread" />
+                </div>
+            </sheet>
+
         </field>
     </record>
 
@@ -28,6 +37,7 @@
                 <field name="user_id" />
             </field>
         </field>
+    </record>
 
     <!--> Search filter todo task view <-->
     <record id="view_filter_todo_task_inherited" model="ir.ui.view">
@@ -41,5 +51,18 @@
                 <filter name="filter_not_assigned" string="Not Assigned" domain="[('user_id','=',False)]" />
             </field>
         </field>
+    </record>
+
+    <!-- Modify menu item -->
+    <record id="todo_application.menu_todo_task" model="ir.ui.menu">
+        <field name="name">Manu Todo</field>
+    </record>
+
+    <!-- Action to open To-Do Task list -->
+    <record model="ir.actions.act_window" id="todo_application.action_todo_task">
+        <field name="context">
+            {'search_default_filter_my_tasks': True}
+        </field>
+    </record>
 
 </odoo>
