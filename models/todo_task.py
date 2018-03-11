@@ -4,14 +4,14 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
-class TodoTask(models.Model):
+class TodoTask(models.AbstractModel):
     _name = 'todo.task'
     _inherit = ['todo.task', 'mail.thread']
     user_id = fields.Many2one('res.users', 'Responsable')
     date_deadline = fields.Date('Deadline')
     name = fields.Char(help="Qu'est-ce qu'on devra faire?")
 
-    @api.multi
+    @api.multigti
     def do_toggle_done(self):
         for task in self:
             if task.user_id != self.env.user:
