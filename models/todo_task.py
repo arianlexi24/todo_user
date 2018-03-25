@@ -16,7 +16,7 @@ class TodoTask(models.Model):
         for task in self:
             if task.user_id != self.env.user:
                 raise ValidationError(
-                    'Only the responsible can do this!')
+                    'Seul le responsable a le droit de faire cela!')
         return super(TodoTask, self).do_toggle_done()
 
     @api.model
