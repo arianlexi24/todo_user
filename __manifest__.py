@@ -7,4 +7,5 @@
         './security/todo_access_rules.xml'
         ],
     'depends': ['todo_application', 'mail'],
+    'demo': ['./data/todo_task.csv']
 }
