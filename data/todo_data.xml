@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<odoo>
+    <!-- Données à charger -->
+    <record model="todo.task" id="todo_task_c">
+        <field name="name">Reinstall Odoo 10</field>
+        <field name="user_id" ref="base.user_root" />
+        <field name="date_deadline">2018-03-30</field>
+        <field name="is_done" eval="False" />
+        <field name="date_deadline" eval="(datetime.now() + timedelta(-1)).strftime('%Y-%m-%d')" />
+        <field name="tag_ids" eval="[(6,0,
+            [ref('vehicle_tag_leasing'),
+            ref('fleet.vehicle_tag_compact'),
+            ref('fleet.vehicle_tag_senior')]
+            )]" />
+    </record>
+</odoo>
